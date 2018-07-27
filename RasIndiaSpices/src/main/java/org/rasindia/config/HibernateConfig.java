@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({"org.rasindia.config"})
-@PropertySource(value = {"classpath: config.properties"})
+@PropertySource(value = {"classpath:config.properties"})
 public class HibernateConfig {
 
 	@Autowired
