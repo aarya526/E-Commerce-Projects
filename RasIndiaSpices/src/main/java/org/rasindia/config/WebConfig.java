@@ -10,14 +10,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
-@EnableWebMvc
 @ComponentScan(value = "org.rasindia.*")
+@EnableWebMvc
 public class WebConfig extends WebMvcConfigurerAdapter{
 
 	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry){
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/WEB-INF/resources/");
 	}
+	
 	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
@@ -27,4 +28,5 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	
 }
