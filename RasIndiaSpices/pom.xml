@@ -4,14 +4,7 @@
   <artifactId>RasIndiaSpices</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <dependencies>
-   <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>4.3.14.RELEASE</version>
-   </dependency>
-  </dependencies>
-     <build>
+      <build>
    <pluginManagement>
     <plugins>
      <plugin>
