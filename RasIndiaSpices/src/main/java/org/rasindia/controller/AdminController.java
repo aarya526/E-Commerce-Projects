@@ -2,6 +2,7 @@ package org.rasindia.controller;
 
 import java.util.List;
 
+import org.rasindia.dao.CategoryDao;
 import org.rasindia.dao.ProductDao;
 import org.rasindia.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ class ProductController{
 	@Autowired
 	ProductDao productDao;
 	
+	@Autowired
+	CategoryDao categoryDao;
+	
 	@RequestMapping(value = "/product/list",method = RequestMethod.GET)
 	public ModelAndView productLis() {
 		
@@ -41,6 +45,7 @@ class ProductController{
 		ModelAndView model = new ModelAndView("Admin Portal/productAdd");
 		Product product = new Product();
 		model.addObject("productForm",product);
+		model.addObject("categories",categoryDao.listAllCategory());
 		return model;
 		
 	}
@@ -63,6 +68,7 @@ class ProductController{
 		ModelAndView model = new ModelAndView("Admin Portal/productAdd");
 		Product product = productDao.findProductById(id);
 		model.addObject("productForm",product);
+		model.addObject("categories",categoryDao.listAllCategory());
 		return model;
 		
 	}

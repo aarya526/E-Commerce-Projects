@@ -34,15 +34,22 @@ img {
 <body>
 <jsp:include page="header.jsp"/>
 <div class = "container-fluid">
+<div class = "row">
+ <div class = "col-sm-4"></div>
+ <div class = "col-sm-4" ><h2 style = "margin-left:70px;">Finished Products</h2></div>
+ <div class = "col-sm-4"></div>
+</div>
    <spring:url value="/product/add" var = "addUrl"/>
    <a href = "${addUrl }">Add New Product(<span class = "glyphicon glyphicon-plus"></span>)</a>
     <c:if test="${!empty (list) }">
 <table width = "100%"  class = "table-hover table-bordered">
+<caption>Finished Products</caption>
 <thead>
  <tr>
   <th>Id</th>
   <th>Productname</th>
   <th>Description</th>
+  <th>Category</th>
   <th>quantity</th>
   <th>price</th>
   <th colspan = "2">Action</th>
@@ -54,6 +61,7 @@ img {
    <td>${product.id }</td>
    <td>${product.productname }</td>
    <td>${product.description }</td>
+   <td>${product.category.categoryname }</td>
    <td>${product.quantity }</td>
    <td>${product.price }</td>
   <spring:url value="/product/update/${product.id }" var = "updateUrl"/>
@@ -67,7 +75,14 @@ img {
 </table>
   </c:if>
 <c:if test="${empty (list) }">
- <h1>There is nothing in stock</h1>
+<div class = "container-fluid">
+<div class = "jumbotron">
+<div class = "row">
+ <div class = "col-sm-4"></div>
+ <div class = "col-sm-8"><h2>There is nothing in stock</h2></div>
+</div>
+ </div>
+ </div>
 </c:if>
 </div>
 </body>

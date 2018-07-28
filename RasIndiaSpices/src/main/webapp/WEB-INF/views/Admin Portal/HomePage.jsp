@@ -29,11 +29,38 @@ img {
   .affix + .container-fluid {
       padding-top: 70px;
   }
+    .btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: cream;
+    cursor: pointer;
+    font-size: 12x;
+}
   </style>
 <title>Admin's Portal</title>
 </head>
 <body>
 <jsp:include page = "header.jsp"/>
+<script>
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+<div class = "jumbotron" style = "margin-top:0px;">
+<div class = "row">
+
+ <div class = "col-sm-4"></div>
+ <div class = "col-sm-8"><h2>Welcome To Admin's Portal</h2></div>
+ </div>
+ </div>
 
 </body>
 </html>

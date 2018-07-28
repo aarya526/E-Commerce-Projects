@@ -19,10 +19,21 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+  .affix {
+      top: 0;
+      width: 100%;
+      z-index: 9999 !important;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
 </style>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+
 <div class = "container">
 <spring:url value="/product/save" var = "saveUrl"/>
  <form:form action = "${saveUrl }" method = "post" modelAttribute="productForm">
@@ -34,6 +45,14 @@
   <div class = "form-group">
    <label>Description</label>
    <form:input type = "text" class = "form-control" path = "description"/>
+  </div>
+  <div class = "from-group">
+   <label>Select category</label>
+   <form:select path="category.cid" class = "form-control">
+   <c:forEach items = "${categories }" var = "category">
+    <form:option value="${category.cid }">${category.categoryname }</form:option>
+    </c:forEach>
+   </form:select>
   </div>
   <div class = "form-group">
    <label>Quantity</label>

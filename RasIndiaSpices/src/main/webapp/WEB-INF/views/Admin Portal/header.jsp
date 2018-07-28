@@ -7,11 +7,11 @@
 </div>
 <nav class="navbar navbar-default" data-spy="affix" data-offset-top="197">
   <ul class="nav navbar-nav">
-    <li><a href="#"><span class = "glyphicon glyphicon-home"></span></a></li>
-    <li><a href="#">Raw Material</a></li>
-     <li><a href="#">Grinded Material</a></li>
-    <li><a href="${pageContext.request.contextPath }/product/list">Finished Product</a></li>
-    <li><a href="#">Suppliers List</a>
-    <li style = "float:right;"><a href="#"><span class = "glyphicon glyphicon-chevron-left"></span>Back To Customer's Portal<span class = "glyphicon glyphicon-chevron-right"></span></a></li>
+    <li><a class = "btn" href="${pageContext.request.contextPath }/admin/home"><span class = "glyphicon glyphicon-home"></span></a></li>
+    <li><a class = "btn" href="#">Raw Material</a></li>
+     <li><a class = "btn"  href="#">Grinded Material</a></li>
+    <li><a class = "btn"  href="${pageContext.request.contextPath }/product/list">Finished Product</a></li>
+    <li><a class = "btn"  href="#">Suppliers List</a>
+    <li><a class = "btn"  href="#"><span class = "glyphicon glyphicon-chevron-left"></span>Back To Customer's Portal<span class = "glyphicon glyphicon-chevron-right"></span></a></li>
   </ul>
 </nav>
