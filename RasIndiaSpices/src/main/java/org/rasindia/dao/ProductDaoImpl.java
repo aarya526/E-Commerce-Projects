@@ -28,5 +28,25 @@ public class ProductDaoImpl implements ProductDao{
 	}
 
 	
+	public void saveOrUpdate(Product product) {
+		
+
+		getSession().saveOrUpdate(product);
+		
+	}
+
+	
+	public void deletepProduct(int id) {
+		
+		getSession().createQuery("delete from Product as a where a.id =  :id").setInteger("id", id).executeUpdate();
+	}
+
+	
+	public Product findProductById(int id) {
+		Product product = (Product) getSession().get(Product.class, id);
+		return product;
+	}
+
+	
 	
 }
