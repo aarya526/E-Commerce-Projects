@@ -13,7 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ProductController {
+public class AdminController {
+	
+	@RequestMapping(value = "/admin/home")
+	public ModelAndView adminHome() {
+		ModelAndView model = new ModelAndView("Admin Portal/HomePage");
+		return model;
+	}
+}
+@Controller
+class ProductController{
 
 	@Autowired
 	ProductDao productDao;
@@ -21,7 +30,7 @@ public class ProductController {
 	@RequestMapping(value = "/product/list",method = RequestMethod.GET)
 	public ModelAndView productLis() {
 		
-		ModelAndView model = new ModelAndView("product/productList");
+		ModelAndView model = new ModelAndView("Admin Portal/productList");
 	    List<Product> product = productDao.ListAllProduct();
 		model.addObject("list",product);
 		return model;
@@ -29,7 +38,7 @@ public class ProductController {
 	
 	@RequestMapping(value = "/product/add",method = RequestMethod.GET)
 	public ModelAndView addProduct() {
-		ModelAndView model = new ModelAndView("product/productAdd");
+		ModelAndView model = new ModelAndView("Admin Portal/productAdd");
 		Product product = new Product();
 		model.addObject("productForm",product);
 		return model;
@@ -51,7 +60,7 @@ public class ProductController {
 	}
 	@RequestMapping(value = "/product/update/{id}",method = RequestMethod.GET)
 	public ModelAndView updateProduct(@PathVariable("id") int id) {
-		ModelAndView model = new ModelAndView("product/productAdd");
+		ModelAndView model = new ModelAndView("Admin Portal/productAdd");
 		Product product = productDao.findProductById(id);
 		model.addObject("productForm",product);
 		return model;

@@ -13,8 +13,16 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Product Form</title>
+<style>
+    img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
 <div class = "container">
 <spring:url value="/product/save" var = "saveUrl"/>
  <form:form action = "${saveUrl }" method = "post" modelAttribute="productForm">
